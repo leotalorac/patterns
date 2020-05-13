@@ -1,4 +1,4 @@
-package factory;
+package seii;
 
 public interface Drink{
 

@@ -1,7 +1,7 @@
-import factory.Drink;
-import factory.FastFood;
-import factory.RestaurantAbstractFactory;
-import factory.RestaurantFactoryProducer;
+import seii.Drink;
+import seii.FastFood;
+import seii.RestaurantAbstractFactory;
+import seii.RestaurantFactoryProducer;
 
 public class Restaurant{
 

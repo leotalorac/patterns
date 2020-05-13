@@ -1,8 +1,8 @@
-package factory;
+package seii;
 
-class Juice implements Drink{
+class Soda implements Drink{
 
-    private final static String DRINK_NAME = "Juice";
+    private final static String DRINK_NAME = "Soda";
 
     @Override
     public void pour( ){ }

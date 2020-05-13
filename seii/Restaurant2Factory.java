@@ -1,4 +1,4 @@
-package factory;
+package seii;
 
 class Restaurant2Factory extends RestaurantAbstractFactory{
 

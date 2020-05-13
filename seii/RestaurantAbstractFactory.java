@@ -1,4 +1,4 @@
-package factory;
+package seii;
 
 public abstract class RestaurantAbstractFactory{
 
