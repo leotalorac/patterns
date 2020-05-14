@@ -9,12 +9,15 @@ public class Restaurant{
 
         FastFood hamburger = restaurant1.getFastfood( "hamburger" );
 
-        FastFood decorator = new Bacon( hamburger );
-        decorator = new Corn( decorator );
-        decorator = new Mushroom( decorator );
+        FastFood.Builder builder = hamburger.builder( );
+        FastFood combo1 = builder
+                .addCorn( )
+                .addBacon( )
+                .addMushroom( )
+                .build( );
 
-        System.out.println( decorator.getDescription( ) );
-        System.out.println( decorator.getCost( ) );
+        System.out.println( combo1.getDescription( ) );
+        System.out.println( combo1.getCost( ) );
 
     }
 

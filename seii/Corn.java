@@ -1,6 +1,6 @@
 package seii;
 
-public class Corn extends AdditionalDecorator{
+class Corn extends AdditionalDecorator{
 
     private final static Float COST = 800F;
     private final static String DESCRIPTION = " with corn";

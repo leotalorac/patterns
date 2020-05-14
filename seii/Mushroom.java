@@ -1,6 +1,6 @@
 package seii;
 
-public class Mushroom extends AdditionalDecorator{
+class Mushroom extends AdditionalDecorator{
 
     private final static Float COST = 900F;
     private final static String DESCRIPTION = " with mushroom";
