@@ -2,7 +2,6 @@ import seii.*;
 
 public class Restaurant{
 
-
     public static void main( String[] args ){
         RestaurantAbstractFactory restaurant1 =
                 new RestaurantFactoryProducer( ).getRestaurantAbstractFactory( 1 );

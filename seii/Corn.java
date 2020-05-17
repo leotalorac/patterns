@@ -11,13 +11,13 @@ public class Corn extends AdditionalDecorator{
 
 
     @Override
-    public void prepareIngredients( ){ }
+    public void prepareIngredients( ){ fastFood.prepareIngredients( ); }
 
     @Override
-    public void cook( ){ }
+    public void cook( ){ fastFood.cook( ); }
 
     @Override
-    public void serve( ){ }
+    public void serve( ){ fastFood.serve( ); }
 
     @Override
     public Float getCost( ){
