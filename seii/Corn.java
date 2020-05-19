@@ -29,4 +29,9 @@ class Corn extends AdditionalDecorator{
         return this.fastFood.getDescription( ) + DESCRIPTION;
     }
 
+    @Override
+    public String toString( ){
+        return getDescription( );
+    }
+
 }

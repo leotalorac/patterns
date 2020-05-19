@@ -2,6 +2,12 @@ package seii;
 
 class Restaurant1Factory extends RestaurantAbstractFactory{
 
+    public Restaurant1Factory( ){
+        super( );
+        promos.add( new Discount( ) );
+    }
+
+
     @Override
     public FastFood getFastfood( String type ){
         switch( type ){
