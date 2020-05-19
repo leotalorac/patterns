@@ -1,6 +1,6 @@
 package seii;
 
-public class Bacon extends AdditionalDecorator{
+class Bacon extends AdditionalDecorator{
 
     private final static Float COST = 1000F;
     private final static String DESCRIPTION = " with bacon";
@@ -28,4 +28,5 @@ public class Bacon extends AdditionalDecorator{
     public String getDescription( ){
         return this.fastFood.getDescription( ) + DESCRIPTION;
     }
+
 }
