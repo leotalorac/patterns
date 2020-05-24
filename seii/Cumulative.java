@@ -6,6 +6,8 @@ package seii;
 class Cumulative implements Promo{
 
     @Override
-    public void applyPromo( RestaurantOrder order ){ }
+    public void applyPromo( RestaurantOrder order ){
+
+    }
 
 }

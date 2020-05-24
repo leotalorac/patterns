@@ -28,8 +28,9 @@ public class PromoStrategy implements AdvertisingStrategy<Promo>, Subject<Set<Pr
 
     @Override
     public void executeStrategy(RestaurantOrder order) {
-        for(Promo promo:promos)
-        promo.applyPromo(order);
+        for(Promo promo:promos){
+            promo.applyPromo(order);
+        }
     }
 
     @Override
@@ -50,6 +51,6 @@ public class PromoStrategy implements AdvertisingStrategy<Promo>, Subject<Set<Pr
     @Override
     public void notifyObservers() {
         for(Observer<Set<Promo>> observer : observers)
-        observer.update(promos);
+            observer.update(promos);
     }
 }

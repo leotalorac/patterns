@@ -4,7 +4,6 @@ class Restaurant1Factory extends RestaurantAbstractFactory{
 
     public Restaurant1Factory(){
         super();
-        promos.addStrategy( new Discount() );
     }
 
     @Override

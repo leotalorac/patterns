@@ -19,10 +19,16 @@ public class Restaurant {
         order1.addItem(combo1);
         order1.addItem(restaurant1.getDrink("soda"));
         order1.addItem(restaurant1.getFastfood("hot dog"));
-        System.out.println(order1);
-
         restaurant1.applyPromos(order1.getId());
         System.out.println(order1);
+        restaurant1.registerObserver(new CustomerPromoObserver());
+        restaurant1.addStrategy("discount");
+        RestaurantOrder order1withpromos = restaurant1.initOrder();
+        order1withpromos.addItem(combo1);
+        order1withpromos.addItem(restaurant1.getDrink("soda"));
+        order1withpromos.addItem(restaurant1.getFastfood("hot dog"));
+        restaurant1.applyPromos(order1withpromos.getId());
+        System.out.println(order1withpromos);
 
         RestaurantAbstractFactory restaurant2 = new RestaurantFactoryProducer().getRestaurantAbstractFactory(2);
 
