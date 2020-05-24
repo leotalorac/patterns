@@ -34,6 +34,26 @@ public interface FastFood{
             return this;
         }
 
+        public Builder addPrefab(String type){
+            switch (type){
+                case "hawaiian":
+                    fastFood = new Hawaiian(fastFood);
+                    break;
+                case "greek":
+                    fastFood = new Greek(fastFood);
+                    break;
+                case "vegetarian":
+                    fastFood = new Vegetarian(fastFood);
+                    break;
+                case "napolitan":
+                    fastFood = new Napolitan(fastFood);
+                    break;
+                default:
+                    break;
+            }
+            return this;
+        }
+
         public FastFood build( ){
             return fastFood;
         }

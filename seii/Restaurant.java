@@ -24,29 +24,42 @@ public class Restaurant {
         restaurant1.applyPromos(order1.getId());
         System.out.println(order1);
 
-        final RestaurantAbstractFactory restaurant2 = new RestaurantFactoryProducer().getRestaurantAbstractFactory(2);
+        RestaurantAbstractFactory restaurant2 = new RestaurantFactoryProducer().getRestaurantAbstractFactory(2);
 
-        final FastFood baconPizza = restaurant2.getFastfood("pizza").builder().addBacon().addCorn().build();
+        FastFood baconPizza = restaurant2.getFastfood("pizza").builder().addBacon().addCorn().build();
 
-        final FastFood vegetarianPizza = restaurant2.getFastfood("pizza").builder().addCorn().addMushroom().build();
+        FastFood strangePizza = restaurant2.getFastfood("pizza").builder().addCorn().addMushroom().build();
 
-        final RestaurantOrder order2 = restaurant2.initOrder();
+        RestaurantOrder order2 = restaurant2.initOrder();
 
         order2.addItem(baconPizza);
-        order2.addItem(vegetarianPizza);
+        order2.addItem(strangePizza);
         System.out.println(order2);
         restaurant2.applyPromos(order2.getId());
         System.out.println(order2);
 
-        final RestaurantAbstractFactory restaurant3 = new RestaurantFactoryProducer().getRestaurantAbstractFactory(3);
+        RestaurantAbstractFactory restaurant3 = new RestaurantFactoryProducer().getRestaurantAbstractFactory(3);
 
-        final HealthyFood salad = restaurant3.getHealthyFood("salad").builder().addIngredient("tomato").mixIngredients();
+        HealthyFood salad = restaurant3.getHealthyFood("salad").builder().addIngredient("tomato").mixIngredients();
         salad.addSalt(45);
-        final HealthyFood saladOnly = restaurant3.getHealthyFood("salad").builder().addSauce("soy").addIngredient("tomato").mixIngredients();
-        final RestaurantOrder order3 = restaurant3.initOrder();
+        HealthyFood saladOnly = restaurant3.getHealthyFood("salad").builder().addSauce("soy").addIngredient("tomato").mixIngredients();
+        RestaurantOrder order3 = restaurant3.initOrder();
         order3.addItem(saladOnly);
         order3.addItem(salad);
         System.out.println(order3);
+
+        FastFood hawaiianPizza =  restaurant2.getFastfood("pizza").builder().addPrefab("hawaiian").build();
+        FastFood vegetarianPizza =  restaurant2.getFastfood("pizza").builder().addPrefab("vegetarian").build();
+        FastFood napolitanPizza =  restaurant2.getFastfood("pizza").builder().addPrefab("napolitan").build();
+        FastFood greekPizza =  restaurant2.getFastfood("pizza").builder().addPrefab("greek").build();
+
+        RestaurantOrder order4 = restaurant2.initOrder();
+        order4.addItem(hawaiianPizza);
+        order4.addItem(vegetarianPizza);
+        order4.addItem(napolitanPizza);
+        order4.addItem(greekPizza);
+        System.out.println(order4);
+
 
     }
 

@@ -1,27 +1,26 @@
 package seii;
 
-class Bacon extends AdditionalDecorator {
+public class Greek extends  AdditionalDecorator{
+    private final static Float COST = 15500F;
+    private final static String DESCRIPTION = " with olives feta cheese and cherry tomato";
 
-    private final static Float COST = 1000F;
-    private final static String DESCRIPTION = " with bacon";
-
-    public Bacon(FastFood fastFood) {
+    protected Greek(FastFood fastFood) {
         super(fastFood);
     }
 
     @Override
     public void prepareIngredients() {
-        fastFood.prepareIngredients();
+
     }
 
     @Override
     public void cook() {
-        fastFood.cook();
+
     }
 
     @Override
     public void serve() {
-        fastFood.serve();
+
     }
 
     @Override
@@ -38,5 +37,4 @@ class Bacon extends AdditionalDecorator {
     public String toString() {
         return getDescription();
     }
-
 }
