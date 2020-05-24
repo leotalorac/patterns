@@ -1,39 +1,35 @@
 package seii;
 
-import java.util.*;
+import java.util.Set;
 
-public abstract class RestaurantAbstractFactory{
+public abstract class RestaurantAbstractFactory {
 
-    private final Map<Integer, RestaurantOrder> orders;
-    protected final Set<Promo> promos;
+    protected AdvertisingStrategy<Promo> promos;
+    protected Subject<Set<Promo>> subject;
 
-    protected RestaurantAbstractFactory( ){
-        orders = new HashMap<>( );
-        promos = new HashSet<>( );
+    protected RestaurantAbstractFactory(){
+        PromoStrategy promoStrategy = new PromoStrategy();
+        promos = promoStrategy;
+        subject = promoStrategy;
+        promos.addStrategy(new Bonus());
+        promos.addStrategy(new Cumulative());
+        promos.addStrategy(new Discount());
+    }
+
+    public Subject<Set<Promo>> getSubject() {
+        return subject;
     }
 
     abstract public FastFood getFastfood( String type );
     abstract public Drink getDrink( String type );
+    abstract public HealthyFood getHealthyFood( String type );
 
     public RestaurantOrder initOrder( ){
         RestaurantOrder order = new SimpleOrder( );
-        orders.put( order.getId( ), order );
         return order;
     }
 
-    public void pay( int orderId, Float cash ) throws Exception{
-        RestaurantOrder order = orders.get( orderId );
-        if( order.getNetCost( ) > cash ){
-            throw new Exception( "No es posible ejecutar el pago" );
-        }
-        orders.remove( orderId );
-    }
-
     public void applyPromos( int orderId ){
-        RestaurantOrder order = orders.get( orderId );
-        for( Promo promo : promos ){
-            order.addPromo( promo );
-        }
     }
 
 }

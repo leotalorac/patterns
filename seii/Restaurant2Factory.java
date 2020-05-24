@@ -4,7 +4,8 @@ class Restaurant2Factory extends RestaurantAbstractFactory{
 
     public Restaurant2Factory( ){
         super( );
-        promos.add( new Bonus( ) );
+        promos.addStrategy( new Bonus( ) );
+        promos.addStrategy( new Cumulative( ) );
     }
 
     @Override
@@ -22,6 +23,11 @@ class Restaurant2Factory extends RestaurantAbstractFactory{
             case "juice": return new Juice( );
             default: return null;
         }
+    }
+
+    @Override
+    public HealthyFood getHealthyFood(String type) {
+        return null;
     }
 
 }

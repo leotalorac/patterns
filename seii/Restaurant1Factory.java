@@ -2,11 +2,10 @@ package seii;
 
 class Restaurant1Factory extends RestaurantAbstractFactory{
 
-    public Restaurant1Factory( ){
-        super( );
-        promos.add( new Discount( ) );
+    public Restaurant1Factory(){
+        super();
+        promos.addStrategy( new Discount() );
     }
-
 
     @Override
     public FastFood getFastfood( String type ){
@@ -25,5 +24,11 @@ class Restaurant1Factory extends RestaurantAbstractFactory{
             default: return null;
         }
     }
+
+    @Override
+    public HealthyFood getHealthyFood(String type) {
+        return null;
+    }
+
 
 }

@@ -8,6 +8,7 @@ class SimpleOrder implements RestaurantOrder{
 
     private final List<FastFood> fastFoods;
     private final List<Drink> drinks;
+    private final List<HealthyFood> healthyFoods;
     private final List<Promo> promos;
 
     private Float finalCost;
@@ -18,6 +19,7 @@ class SimpleOrder implements RestaurantOrder{
     public SimpleOrder( ){
         fastFoods = new LinkedList<>( );
         drinks = new LinkedList<>( );
+        healthyFoods = new LinkedList<>();
         promos = new ArrayList<>( );
         isNetCostCalculated = false;
         werePromosApplied = false;
@@ -40,6 +42,11 @@ class SimpleOrder implements RestaurantOrder{
     }
 
     @Override
+    public void addItem(HealthyFood healthyFood) {
+        healthyFoods.add(healthyFood);
+    }
+
+    @Override
     public List<Drink> getDrinks( ){
         return drinks;
     }
@@ -47,6 +54,11 @@ class SimpleOrder implements RestaurantOrder{
     @Override
     public List<FastFood> getFastFoods( ){
         return fastFoods;
+    }
+
+    @Override
+    public List<HealthyFood> getHealthyFood() {
+        return healthyFoods;
     }
 
     @Override
@@ -63,6 +75,9 @@ class SimpleOrder implements RestaurantOrder{
         }
         for( Drink drink : drinks ){
             grossCost += drink.getCost( );
+        }
+        for( HealthyFood healthyFood : healthyFoods ){
+            grossCost += healthyFood.getCost( );
         }
         return grossCost;
     }
@@ -93,6 +108,7 @@ class SimpleOrder implements RestaurantOrder{
         StringBuilder builder = new StringBuilder( "********************" );
         builder.append( "\nOrden número " ).append( getId( ) )
                 .append( "\n  Comidas Rápidas: " ).append( fastFoods )
+                .append( "\n  Comidas Saludables: " ).append( healthyFoods )
                 .append( "\n  Bebidas: " ).append( drinks )
                 .append( "\n  Costo Neto: " ).append( getNetCost( ) )
                 .append( "\n  Costo Bruto: " ).append( getGrossCost( ) );
